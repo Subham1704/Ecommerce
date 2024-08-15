@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .buttongrp{
+            display: flex;
+            justify-content: center;
+        }
+        button{
+            width:100px;
+            min-height: 30px;
+            background-color: aqua;
+        }
+    </style>
+</head>
+<body>
+    {{>navbar}}
+    <h1>Welcome to admin</h1>
+    <div class="buttongrp">
+        <a href='/admin/products/all'>
+            <button>View Products</button>
+        </a>
+        <a href='/admin/products/add'>
+            <button>Add product</button>
+        </a>
+    </div>
+</body>
+</html>

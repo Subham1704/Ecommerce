@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cart</title>
+    <style>
+        .qty{
+            display: flex;
+        }
+        .buy{
+            background-color: black;
+            color: aqua;
+            font-size: 15px;
+        }
+    </style>
+</head>
+<body>
+    {{>navbar}}
+    <h1>Welcome to cart page</h1>
+    <h3>Total Price:{{totalPrice}}</h3>
+    <ul class="cart-list">
+        {{#each cart as |c|}}
+            <li>
+                <img src={{c.id.imageUrl}}>
+                <h4>name:{{c.id.name}}</h4>
+                <h4>price:{{c.id.price}}</h4>
+                <h4>Quantity:</h4>
+                    <div class="qty">
+                        <a href='cart/increment/{{c.id._id}}'>
+                            <button class="increment">+</button>
+                        </a>
+                        <div>{{c.quantity}}</div>
+                        <a href='cart/decrement'>
+                            <button class="decrement">-</button>
+                        </a>   
+                        <div id={{c.id._id}}></div>             
+                    </div>
+
+            </li>
+        {{/each}}
+    </ul>
+    <a href='/shop/orders'>
+        <button class="buy">Buy</button>
+    </a>
+    <script src="utils/axios.js"></script>
+    <script src='/public/js/cart.js'></script>
+</body>
+</html>

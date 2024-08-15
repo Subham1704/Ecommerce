@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>admin product list</title>
+    <style>
+        .productlist{
+            border: 2px black;
+            display: flex;
+            justify-content: space-around;
+        }
+        
+    </style>
+</head>
+<body>
+    {{>navbar}}
+    <h1>Products</h1>
+    <div class="list">
+    {{#each products as |category|}}
+        <h3>{{@key}}</h3>
+        {{#each category as |p|}}
+            <div class="productlist">
+                <img src={{p.imageUrl}}><br>
+                <h4>Product name:{{p.name}}</h4>
+                <h4>Product price:{{p.price}}</h4>
+                <h4>Product description:{{p.description}}</h4>
+                <a href='/admin/products/update/{{p._id}}'>
+                    <button>Edit</button>
+                </a>
+                <a href='/admin/products/delete/{{p._id}}'>
+                    <button>Delete</button>
+                </a>       
+            </div>
+        {{/each}}
+    {{/each}}
+    </div>
+</body>
+</html>
